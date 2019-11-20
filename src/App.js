@@ -2,6 +2,10 @@ import React,{ useState, useEffect } from "react";
 import axios from 'axios'
 import "./App.css";
 import DataComponent from '/Users/nadiachilds/Desktop/nasa-photo-of-the-day/src/DataComponent.js'
+import styled from 'styled-components'
+const StyledDiv = styled.div`
+background:black;
+`;
 
 function App() {
   const [data, setData] = useState();
@@ -16,9 +20,13 @@ axios
   if (!data) return <div> Loading...</div>
 
   return (
+    <StyledDiv>
     <div className="App">
+
      <DataComponent explanation={data.explanation} title={data.title} type ={data.media_type} url={data.url}/>
-    </div>
+     </div>
+    </StyledDiv>
+  
   );
 }
 
